@@ -1,0 +1,28 @@
+=====================================
+date difference between two dates 27
+Total interest value 9247.0
+Reduced value without interest 20753.0
+Loan interest for the start date 28 Mar 2023 from end date 24 Apr 2023 is 9247.0
+=====================================
+
+=====================================
+date difference between two dates 36
+Total interest value 11817.0
+Reduced value without interest 18183.0
+Loan interest for the start date 24 Apr 2023 from end date 30 May 2023 is 11817.0
+=====================================
+
+=====================================
+date difference between two dates 31
+Total interest value 9790.0
+Reduced value without interest 20210.0
+Loan interest for the start date 30 May 2023 from end date 30 Jun 2023 is 9790.0
+=====================================
+
+=====================================
+date difference between two dates 27
+Total interest value 8153.0
+Reduced value without interest 21847.0
+Loan interest for the start date 30 Jun 2023 from end date 27 Jul 2023 is 8153.0
+=====================================
+
