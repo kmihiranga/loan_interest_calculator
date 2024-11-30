@@ -85,7 +85,7 @@ public class LoanInterestCalculatorServiceImpl implements LoanInterestCalculator
             log.info("Successfully write to the file");
         }
         catch (IOException ex) {
-            log.error(ex.getMessage());
+            throw new RuntimeException(ex.getMessage());
         }
     }
 
@@ -107,7 +107,7 @@ public class LoanInterestCalculatorServiceImpl implements LoanInterestCalculator
                 log.error("File not found for specified location.");
             }
         } catch (IOException exception) {
-            log.error(exception.getMessage());
+            throw new RuntimeException(exception.getMessage());
         }
     }
 
