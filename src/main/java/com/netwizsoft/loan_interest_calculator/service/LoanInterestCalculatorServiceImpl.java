@@ -36,20 +36,8 @@ public class LoanInterestCalculatorServiceImpl implements LoanInterestCalculator
             throw new RuntimeException("Not strictly increasing provided dates.");
         }
 
-        try {
-
-            // delete if file exists
-            boolean deleteFile = Files.deleteIfExists(Paths.get(reportPath));
-
-            if (deleteFile) {
-                log.info("File deleted successfully before generate report");
-            } else {
-                log.error("File not found for specified location.");
-            }
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
+        // delete file if exists
+        this.deleteFile(reportPath);
 
         // calculate monthly interest
         for (int i = 1; i < loanDetailsRequest.getPaymentDates().size(); i++) {
@@ -98,6 +86,28 @@ public class LoanInterestCalculatorServiceImpl implements LoanInterestCalculator
         }
         catch (IOException ex) {
             log.error(ex.getMessage());
+        }
+    }
+
+    /**
+     * delete file if exists
+     *
+     * @param fileName
+     */
+    private void deleteFile(String fileName) {
+
+        try {
+
+            // delete if file exists
+            boolean deleteFile = Files.deleteIfExists(Paths.get(reportPath));
+
+            if (deleteFile) {
+                log.info("File deleted successfully before generate report");
+            } else {
+                log.error("File not found for specified location.");
+            }
+        } catch (IOException exception) {
+            log.error(exception.getMessage());
         }
     }
 
