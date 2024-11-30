@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,21 +24,10 @@ public class LoanInterestCalculatorServiceImpl implements LoanInterestCalculator
     @Value("${loan.report.path}")
     private String reportPath;
 
-    public Date convertStringToDate(String dateStr) throws ParseException {
-        // Define the date format matching the input string
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        formatter.setLenient(false); // Ensure strict parsing
-        return formatter.parse(dateStr); // Parse the string into a Date object
-    }
-
     @Override
     public void calculateLoanInterestYearly(LoanDetailsRequest loanDetailsRequest) {
 
-        long totalInterest = 0L;
-
         double finalPrinciple = loanDetailsRequest.getLoanAmount();
-
-        List<Double> monthlyInterests = new ArrayList<>(loanDetailsRequest.getPaymentDates().size());
 
         // check date list is correctly listed
         boolean strictlyIncreasing = isStrictlyIncreasing(loanDetailsRequest.getPaymentDates());
